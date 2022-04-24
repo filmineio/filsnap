@@ -1,5 +1,5 @@
 {
-  "version": "2.3.3",
+  "version": "2.3.1",
   "proposedName": "Filsnap",
   "description": "The Filecoin snap.",
   "repository": {
@@ -7,7 +7,7 @@
     "url": "https://github.com/Chainsafe/filsnap.git"
   },
   "source": {
-    "shasum": "b8r5tRhmxX7VLYW/Q7XKfAzbqtWKJfJQ6WpUMQe208w=",
+    "shasum": "KDZwLqWzzkrJ66r+1R6kLFoxxMv7AGDFoms3cyMUmAs=",
     "location": {
       "npm": {
         "filePath": "dist/bundle.js",

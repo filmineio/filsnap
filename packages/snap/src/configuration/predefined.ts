@@ -19,8 +19,10 @@ export const filecoinTestnetConfiguration: SnapConfig = {
   derivationPath: "m/44'/1'/0'/0/0",
   network: "t",
   rpc: {
-    token: "",
-    url: `https://calibration.node.glif.io`
+    token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJBbGxvdyI6WyJyZWFkIiwid3JpdGUiLCJzaWduIiwiYWRtaW4iXX0.RVUNXjTmfjfgUgSW9rVHcpdFLKgHTL-CK4Fgk_w30ss",
+    url: `https://indivar.filmine.io/rpc/v0`,
+    // token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJBbGxvdyI6WyJyZWFkIiwid3JpdGUiLCJzaWduIiwiYWRtaW4iXX0.MDBRCM0rQMdFhZWfyO3zGJJVReB9L-w1qYMK_Q5fvqI",
+    // url: `https://23.88.3.90:8124/rpc/v0`
   },
   unit: {
     decimals: 6,

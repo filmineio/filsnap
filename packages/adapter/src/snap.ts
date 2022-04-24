@@ -1,17 +1,20 @@
-import {FilecoinSnapApi} from "@chainsafe/filsnap-types";
+import { FilecoinSnapApi } from "@chainsafe/filsnap-types";
 import {
   calculateGasForMessage,
   configure,
+  createMultisig,
   exportPrivateKey,
   getAddress,
-  getBalance, getMessages,
-  getPublicKey, sendMessage,
+  getBalance,
+  getMessages,
+  getPublicKey,
+  sendMessage,
   signMessage,
-  signMessageRaw
+  signMessageRaw,
+  stateWaitMessage,
 } from "./methods";
 
 export class MetamaskFilecoinSnap {
-
   // snap parameters
   protected readonly snapOrigin: string;
   protected readonly snapId: string;
@@ -25,6 +28,7 @@ export class MetamaskFilecoinSnap {
     return {
       calculateGasForMessage: calculateGasForMessage.bind(this),
       configure: configure.bind(this),
+      createMultisig: createMultisig.bind(this),
       exportPrivateKey: exportPrivateKey.bind(this),
       getAddress: getAddress.bind(this),
       getBalance: getBalance.bind(this),
@@ -33,5 +37,7 @@ export class MetamaskFilecoinSnap {
       sendMessage: sendMessage.bind(this),
       signMessage: signMessage.bind(this),
       signMessageRaw: signMessageRaw.bind(this),
+      stateWaitMessage: stateWaitMessage.bind(this),
     };
-  };}
+  };
+}

@@ -4,10 +4,10 @@ declare module "@filecoin-shipyard/lotus-client-schema" {
         methods: any;
     }
 
-    interface testnet {
+    interface mainnet {
         fullNode: Schema;
         storageMiner: Schema;
     }
 
-    export const testnet: testnet;
+    export const mainnet: mainnet;
 }

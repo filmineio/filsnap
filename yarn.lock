@@ -2710,7 +2710,7 @@
   resolved "https://registry.yarnpkg.com/@filecoin-shipyard/lotus-client-provider-browser/-/lotus-client-provider-browser-1.1.0.tgz#f52f05267a4195f06d18e4775b7ec81c46e80a8a"
   integrity sha512-WgRbh3AdI+F27rsZYGjsSIRQa7SIxpQ+RusimAQcdIH4fqVasW3y9p+YHL39XfMTE4sUSRFMGpFHr3E/Hh37XA==
 
-"@filecoin-shipyard/lotus-client-provider-nodejs@1.1.1":
+"@filecoin-shipyard/lotus-client-provider-nodejs@^1.0.5":
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/@filecoin-shipyard/lotus-client-provider-nodejs/-/lotus-client-provider-nodejs-1.1.1.tgz#bfd97bd0dd580a41084442d2bb3cb74c3aeb948b"
   integrity sha512-PgjQeABOpiZ89XLqL74GnPQ3KvBWo8HN8N13blOSuev5V4dagPNEFOwhvXt4zWTbqAfLwYwWxY1nZtsnEtRysg==
@@ -2719,15 +2719,15 @@
     node-fetch "^2.6.1"
     ws "^8.2.0"
 
-"@filecoin-shipyard/lotus-client-rpc@^0.0.11":
-  version "0.0.11"
-  resolved "https://registry.yarnpkg.com/@filecoin-shipyard/lotus-client-rpc/-/lotus-client-rpc-0.0.11.tgz#60d6953dee4ff583ca982aae45d57e05a68ad89b"
-  integrity sha512-7ZgT7tyB+5fp5mC9yC4Da9vj3M8PiVPNuxFkFAaDRu8blDuKg/tNh4OMZr5pqs/uuwjRZuXslGl8dOb2Iz+rZg==
+"@filecoin-shipyard/lotus-client-rpc@^1.1.4":
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/@filecoin-shipyard/lotus-client-rpc/-/lotus-client-rpc-1.2.0.tgz#a86d43e48e4c9b2971edbf2b6cf846bfc1f06512"
+  integrity sha512-z7PhEPHkOHhCz/RQEPFEOHegPHyOxH99/1qOkY+COLmCRrHsVxpGAy6TqJLxOFLxeYaUzyTPxpG4c4cRrQ25+w==
 
-"@filecoin-shipyard/lotus-client-schema@^0.0.14":
-  version "0.0.14"
-  resolved "https://registry.yarnpkg.com/@filecoin-shipyard/lotus-client-schema/-/lotus-client-schema-0.0.14.tgz#c8f62fd87ca095be667102b52ffcad1c5f8d21fb"
-  integrity sha512-qBWjM58nvnIh9YpiY1XZbmDH1J3h8lrVUCA9co4tr2LCRypGOZe7n+1GKMJAN0CnTQSnQRT6RW8uJdqBymY5qg==
+"@filecoin-shipyard/lotus-client-schema@^4.1.0":
+  version "4.2.0"
+  resolved "https://registry.yarnpkg.com/@filecoin-shipyard/lotus-client-schema/-/lotus-client-schema-4.2.0.tgz#684dd9e53657e2f76ab9960637ca5c2e2c264f67"
+  integrity sha512-JX1ItITk5wdsMLRwdmxfFP+p7M9qatTbQ1C2iH4KPhRU0Yds4/b2R37XovuH88gNHqKq89VBOOzHehyibEzvtQ==
 
 "@gar/promisify@^1.0.1":
   version "1.1.2"

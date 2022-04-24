@@ -1,37 +1,46 @@
-import {EmptyMetamaskState, Wallet} from "./interfaces";
-import {getAddress} from "./rpc/getAddress";
-import {exportPrivateKey} from "./rpc/exportPrivateKey";
-import {getPublicKey} from "./rpc/getPublicKey";
-import {getApi} from "./filecoin/api";
-import {LotusRpcApi} from "./filecoin/types";
-import {getBalance} from "./rpc/getBalance";
-import {configure} from "./rpc/configure";
-import {getMessages} from "./rpc/getMessages";
-import {signMessage, signMessageRaw} from "./rpc/signMessage";
-import {sendMessage} from "./rpc/sendMessage";
-import {estimateMessageGas} from "./rpc/estimateMessageGas";
+import { EmptyMetamaskState, Wallet } from "./interfaces";
+import { getAddress } from "./rpc/getAddress";
+import { exportPrivateKey } from "./rpc/exportPrivateKey";
+import { getPublicKey } from "./rpc/getPublicKey";
+import { getApi } from "./filecoin/api";
+import { LotusRpcApi } from "./filecoin/types";
+import { getBalance } from "./rpc/getBalance";
+import { configure } from "./rpc/configure";
+import { getMessages } from "./rpc/getMessages";
+import { signMessage, signMessageRaw } from "./rpc/signMessage";
+import { sendMessage } from "./rpc/sendMessage";
+import { estimateMessageGas } from "./rpc/estimateMessageGas";
+import { LotusRPC } from "@filecoin-shipyard/lotus-client-rpc";
+import { createMultisig } from "./rpc/createMultisig";
+import { stateWaitMessage } from "./rpc/stateWaitMessage";
 
 declare let wallet: Wallet;
 
 const apiDependentMethods = [
-  "fil_getBalance", "fil_signMessage", "fil_sendMessage", "fil_getGasForMessage", "fil_configure"
+  "fil_getBalance",
+  "fil_signMessage",
+  "fil_sendMessage",
+  "fil_getGasForMessage",
+  "fil_configure",
+  "fil_createMultisig",
+  "fil_stateWaitMessage"
 ];
 
 wallet.registerRpcMessageHandler(async (originString, requestObject) => {
   const state = await wallet.request({
-    method: 'snap_manageState',
-    params: ['get'],
+    method: "snap_manageState",
+    params: ["get"],
   });
 
   if (!state) {
     // initialize state if empty and set default config
     await wallet.request({
-      method: 'snap_manageState',
-      params: ['update', EmptyMetamaskState()],
+      method: "snap_manageState",
+      params: ["update", EmptyMetamaskState()],
     });
   }
 
-  let api: LotusRpcApi;
+  let api: LotusRPC;
   // initialize lotus RPC api if needed
   if (apiDependentMethods.indexOf(requestObject.method) >= 0) {
     api = await getApi(wallet);
@@ -40,7 +49,9 @@ wallet.registerRpcMessageHandler(async (originString, requestObject) => {
   switch (requestObject.method) {
     case "fil_configure":
       const resp = await configure(
-        wallet, requestObject.params.configuration.network, requestObject.params.configuration
+        wallet,
+        requestObject.params.configuration.network,
+        requestObject.params.configuration
       );
       api = resp.api;
       return resp.snapConfig;
@@ -55,6 +66,10 @@ wallet.registerRpcMessageHandler(async (originString, requestObject) => {
       return balance;
     case "fil_getMessages":
       return getMessages(wallet);
+    case "fil_createMultisig":
+      return createMultisig(wallet, api);
+    case "fil_stateWaitMessage":
+      return stateWaitMessage(api, requestObject.params.message);
     case "fil_signMessage":
       return await signMessage(wallet, api, requestObject.params.message);
     case "fil_signMessageRaw":
@@ -62,7 +77,12 @@ wallet.registerRpcMessageHandler(async (originString, requestObject) => {
     case "fil_sendMessage":
       return await sendMessage(wallet, api, requestObject.params.signedMessage);
     case "fil_getGasForMessage":
-      return await estimateMessageGas(wallet, api, requestObject.params.message, requestObject.params.maxFee);
+      return await estimateMessageGas(
+        wallet,
+        api,
+        requestObject.params.message,
+        requestObject.params.maxFee
+      );
     default:
       throw new Error("Unsupported RPC method");
   }
