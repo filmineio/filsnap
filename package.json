@@ -3,6 +3,7 @@
   "private": true,
   "author": "ChainSafe <info@chainsafe.io>",
   "license": "(Apache-2.0 AND MIT)",
+  "version": "1.0.0",
   "workspaces": [
     "packages/*"
   ],
