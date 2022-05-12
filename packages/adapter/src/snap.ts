@@ -1,20 +1,19 @@
-import { FilecoinSnapApi } from "@chainsafe/filsnap-types";
+import {FilecoinSnapApi} from "@chainsafe/filsnap-types";
 import {
   calculateGasForMessage,
   configure,
   createMultisig,
   exportPrivateKey,
   getAddress,
-  getBalance,
-  getMessages,
-  getPublicKey,
-  sendMessage,
+  getBalance, getMessages,
+  getPublicKey, sendMessage,
   signMessage,
   signMessageRaw,
   stateWaitMessage,
 } from "./methods";
 
 export class MetamaskFilecoinSnap {
+
   // snap parameters
   protected readonly snapOrigin: string;
   protected readonly snapId: string;

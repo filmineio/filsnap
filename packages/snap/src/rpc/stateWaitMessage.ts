@@ -6,7 +6,6 @@ export async function stateWaitMessage(
   message: CidMessage
 ): Promise<MsgLookup | null> {
   try {
-    // @ts-ignore
     const messageLookupResponse = await api.stateWaitMsg(message, 2);
     console.log(
       "msgLookupResponse: ",
